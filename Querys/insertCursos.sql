@@ -1,0 +1,10 @@
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Introducción a la Ingeniería Electrónica', 'Curso introductorio a la carrera de ingeniería electrónica');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Circuitos Eléctricos I', 'Curso sobre circuitos eléctricos básicos');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Electrónica Analógica I', 'Curso sobre circuitos y dispositivos electrónicos analógicos');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Electrónica Digital I', 'Curso sobre circuitos y dispositivos electrónicos digitales');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Sistemas de Comunicación I', 'Curso sobre sistemas de comunicación analógicos');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Microcontroladores', 'Curso sobre programación y diseño de sistemas con microcontroladores');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Procesamiento de Señales', 'Curso sobre procesamiento digital de señales');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Sistemas Embebidos', 'Curso sobre diseño y programación de sistemas embebidos');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Instrumentación Electrónica', 'Curso sobre diseño y construcción de instrumentos electrónicos');
+INSERT INTO Cursos (NombreCurso, Descripcion) VALUES ('Teoría de la Información y Codificación', 'Curso sobre teoría de la información y técnicas de codificación');
