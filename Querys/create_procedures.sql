@@ -43,10 +43,27 @@ END
 
 go
 
-CREATE PROCEDURE ListarEstudiantesCursos
+
+CREATE PROCEDURE ListarECursos
+	@Identificacion VARCHAR(20)
 AS
 BEGIN
-   SELECT * FROM EstudiantesCursos
+	SELECT C .*FROM Cursos C 
+	INNER JOIN EstudiantesCursos EC ON C.NombreCurso = EC.NombreCurso
+	WHERE EC.Identificacion = @Identificacion
+
 END
 
 go
+
+
+
+CREATE PROCEDURE ObtenerEstudiante
+	@Identificacion VARCHAR(20)
+AS
+BEGIN
+   SELECT * FROM Estudiantes WHERE Identificacion = @Identificacion
+END
+
+go
+

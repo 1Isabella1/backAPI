@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Data;
 using Microsoft.AspNetCore.Cors;
+using System;
 
 namespace backAPI.Controllers
 {
@@ -20,11 +21,11 @@ namespace backAPI.Controllers
         }
 
         [HttpGet]
-        [Route("ListaEstudianteCurso")]
-        public IActionResult ListaEstudianteCurso()
+        [Route("ListaECurso/{Identificacion}")]
+        public IActionResult ListaECurso(string Identificacion)
         {
 
-            List<EstudianteCurso> oListaEstudiantesCursos = new List<EstudianteCurso>();
+            List<Curso> oListaECursos = new List<Curso>();
 
             try
             {
@@ -33,28 +34,31 @@ namespace backAPI.Controllers
                 {
 
                     conexion.Open();
-                    var cmd = new SqlCommand("ListarEstudiantesCursos", conexion);
+                    var cmd = new SqlCommand("ListarECursos", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("Identificacion", Identificacion);
+
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {
-                            oListaEstudiantesCursos.Add(new EstudianteCurso()
+                            oListaECursos.Add(new Curso()
                             {
-                                Identificacion = dr["Identificacion"].ToString(),
+                                
                                 NombreCurso = dr["NombreCurso"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString(),
                             });
                         }
 
                     }
 
                 }
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "okestCu", response = oListaEstudiantesCursos });
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "okestCu", response = oListaECursos });
             }
             catch (Exception error)
             {
 
-                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = error.Message, response = oListaEstudiantesCursos });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { mensaje = error.Message, response = oListaECursos });
 
             }
 
